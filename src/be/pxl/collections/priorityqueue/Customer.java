@@ -27,4 +27,11 @@ public class Customer {
     public int getCustomerNumber() {
         return customerNumber;
     }
+
+	@Override
+	public String toString() {
+		return "Customer [name=" + name + ", points=" + points + ", customerNumber=" + customerNumber + "]";
+	}
+    
+    
 }

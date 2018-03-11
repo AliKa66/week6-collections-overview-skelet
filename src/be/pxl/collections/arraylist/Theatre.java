@@ -1,5 +1,4 @@
 package be.pxl.collections.arraylist;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,11 +12,13 @@ public class Theatre {
         this.theatreName = theatreName;
         this.seatsPerRow = seatsPerRow;
         this.numRows = numRows;
-        // voeg alle stoelen toe in het theater, nummer alle stoelen.
-        // de eerste rij stoelen is genummerd vanaf A1, A2,...
-        // de tweede rij stoelen is genummerd vanaf B1, B2,...
-    }
 
+        for (char row = 'A'; row <= 'A' + numRows; row++) {
+            for (int seatNum = 1; seatNum <= seatsPerRow; seatNum++) {
+                seats.add(new Seat(row + String.format("%02d", seatNum)));
+            }
+        }
+    }
 
     public void displayMap() {
         int count = 0;
@@ -31,16 +32,20 @@ public class Theatre {
     }
 
     public boolean reservateSeat(String seatNumber) {
-        // implementeer de reservatie van een stoel,
-    	// gebruik hierbij de methode getSeatBySeatNumber
+        Seat requestedSeat = getSeatBySeatNumber(seatNumber);
+        if (requestedSeat != null) {
+            return requestedSeat.reserve();
+        }
+        return false;
     }
 
     private Seat getSeatBySeatNumber(String seatNumber) {
-        // implementeer het opzoeken van een stoel adhv een stoelnummer
-    	// hoelang duurt het om stoel A1 te zoeken
-    	// hoelang duurt het om de laatste stoel in het theater te zoeken
-    	// probeer dit eens uit het het hoofdprogramma
-    	// stel eventueel nog alternatieven voor
+        for (Seat seat : seats) {
+            if (seat.getSeatNumber().equals(seatNumber)) {
+                return seat;
+            }
+        }
+        return null;
     }
 
 

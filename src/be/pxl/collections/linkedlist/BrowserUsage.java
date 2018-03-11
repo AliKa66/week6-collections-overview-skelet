@@ -7,7 +7,7 @@ public class BrowserUsage {
     public static void main(String[] args) {
         Browser browser = new Browser();
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Give url, BACK, FWD or STOP");
+        System.out.println("Give url, BACK or FWD");
         String input = scanner.nextLine();
         while(!"STOP".equals(input.toUpperCase())) {
             switch (input) {

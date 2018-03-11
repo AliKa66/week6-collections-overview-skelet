@@ -26,6 +26,26 @@ public class HeavenlyBody {
         return satellites.add(moon);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        HeavenlyBody that = (HeavenlyBody) o;
+
+        return getName() != null ? getName().equals(that.getName()) : that.getName() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return getName() != null ? getName().hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return name + " " + orbitalPeriod;
+    }
+
     public Set<HeavenlyBody> getSatellites() {
         return satellites;
     }

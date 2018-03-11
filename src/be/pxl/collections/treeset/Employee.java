@@ -1,6 +1,6 @@
 package be.pxl.collections.treeset;
 
-public class Employee{
+public class Employee {
     private String name;
     private int salary;
 
@@ -17,4 +17,5 @@ public class Employee{
     public String toString() {
         return name + " " + salary;
     }
+
 }

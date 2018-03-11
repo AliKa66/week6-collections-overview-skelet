@@ -23,4 +23,26 @@ public class Customer {
     public int getCustomerNumber() {
         return customerNumber;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Customer customer = (Customer) o;
+
+        return getCustomerNumber() == customer.getCustomerNumber();
+    }
+
+    @Override
+    public int hashCode() {
+        return getCustomerNumber();
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        result.append("CustomerNumber: ").append(customerNumber).append(" Naam: ").append(name);
+        return result.toString();
+    }
 }

@@ -17,13 +17,13 @@ public class ConsultationApp {
 
         Customer bea = new Customer(108, "Bea");
         bea.addPoints(12);
-        
-        // gebruik een PriorityQueue om de klanten te sorteren voor hun consultatie
-        // de volgorde van de klanten wordt bepaald door hun punten
-        // de klant met de meeste punten mag als eerste
-        
 
+        PriorityQueue<Customer> myCustomers = new PriorityQueue<>((c1, c2)  -> c1.getPoints() - c2.getPoints());
+        myCustomers.addAll(Arrays.asList(peter, sofie, bea, alice));
         
+        while (myCustomers.peek() != null) {
+        	System.out.println(myCustomers.poll());
+        }
 
     }
 }

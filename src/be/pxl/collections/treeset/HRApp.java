@@ -4,7 +4,7 @@ import java.util.TreeSet;
 
 public class HRApp {
     public static void main(String[] args) {
-        TreeSet<Employee> ourEmployees = new TreeSet<>();
+        TreeSet<Employee> ourEmployees = new TreeSet<>((e1, e2) -> e1.getSalary() - e2.getSalary());
 
         ourEmployees.add(new Employee("Tom", 80000));
         ourEmployees.add(new Employee("Jack", 35000));
@@ -18,13 +18,13 @@ public class HRApp {
         ourEmployees.stream().forEach(System.out::println);
 
         System.out.println("Employee with salary > 70000");
-        // toon de eerste employee die meer dan 70000 heeft
-
-        // wat is de betekenis van de volgende methoden
-        // geef ook telkens een voorbeeld
-        // lower, ceiling, floor, tailSet, headSet, subSet
+        System.out.println(ourEmployees.higher(new Employee("Dummy", 70000)));
         
+        System.out.println("Employee with salary < 70000");
+        System.out.println(ourEmployees.lower(new Employee("Dummy", 70000)));
         
+        System.out.println("Employee with lowest salary");
+        System.out.println(ourEmployees.first());
 
     }
 }

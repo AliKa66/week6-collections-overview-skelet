@@ -28,12 +28,12 @@ public class SolarSystemApp {
 
         planets.add(new HeavenlyBody("Mars", 690));
 
-        System.out.println("Some planets: ");
-        // toon de verschillende planeten in de console
-        // hoe zorg je ervoor dat Mars slechts 1 keer toegevoegd voorkomt
-        
+        planets.forEach(planet -> System.out.println(planet));
+
         System.out.println("Some moons of Jupiter: ");
-        // toon de manen van jupiter
-        // hoeveel keer komt Ganymede voor?
+        jupiter.getSatellites().forEach(moon -> System.out.println(moon));
+
+
+
     }
 }
